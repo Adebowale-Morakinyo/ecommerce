@@ -32,6 +32,8 @@ def create_tables():
 # App startup hook to create tables
 create_tables()
 
+# Gunicorn will be used in production, no need for __main__ block
+"""
 if __name__ == '__main__':
     # For local development, you can run the app using a WSGI server like Gunicorn
     logger.info("Starting the app...")
@@ -39,3 +41,4 @@ if __name__ == '__main__':
 
     httpd = simple_server.make_server('127.0.0.1', 8000, app)
     httpd.serve_forever()
+"""
