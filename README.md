@@ -61,7 +61,7 @@ The app will start on `http://127.0.0.1:8000`.
 **Response**:
 ```json
 {
-    "message": "Payment created successfully"
+    "message": "Payment added and configuration checked"
 }
 ```
 
@@ -94,18 +94,25 @@ The app will start on `http://127.0.0.1:8000`.
 **Request**:
 ```json
 {
-    "customer_id": 1,
-    "config_data": {
-        "payment_threshold": 1000,
-        "notify_on_exceed": true
-    }
+    "instance_type": "payment",
+    "conditions": {
+        "check_field": "status",
+        "expected_value": "Unpaid"
+    },
+    "actions": [
+        {
+            "action_type": "update",
+            "target_field": "status",
+            "new_value": "Paid"
+        }
+    ]
 }
 ```
 
 **Response**:
 ```json
 {
-    "message": "Configuration updated successfully"
+    "message": "Configuration added successfully"
 }
 ```
 
