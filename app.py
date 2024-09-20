@@ -7,7 +7,11 @@ from resources.config_resource import ConfigResource
 import logging
 
 # Configure logging
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO,
+                    format='%(asctime)s %(levelname)s %(message)s',
+                    handlers=[
+                        logging.StreamHandler()  # Stream logs to Railway logs
+                    ])
 logger = logging.getLogger(__name__)
 
 # Initialize Falcon API
